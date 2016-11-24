@@ -2,8 +2,9 @@ import XCTest
 @testable import FloorFinder
 
 class FloorFinderTests: XCTestCase {
-  func testCanCreateFloorFinder() {
-    let floorFinder = FloorFinder()
+  func testCanFindFloor() {
+    let finder = FloorFinder()
+    XCTAssertEqual(1, finder.findFloor("("))
   }
 }
 
