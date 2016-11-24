@@ -2,8 +2,10 @@ import Foundation
 
 struct FloorFinder {
   func findFloor(_ specification: String) -> Int {
-    if specification == "(" { return 1 }
-    if specification == ")" { return -1 }
-    return 0
+    return specification.characters.reduce(0) { sum, character in
+      if character == "(" { return sum + 1 }
+      if character == ")" { return sum - 1 }
+      return sum
+    }
   }
 }

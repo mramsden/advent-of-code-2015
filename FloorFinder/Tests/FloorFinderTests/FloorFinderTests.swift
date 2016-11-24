@@ -3,13 +3,15 @@ import XCTest
 
 class FloorFinderTests: XCTestCase {
   func testCanFindUpFloor() {
-    let finder = FloorFinder()
-    XCTAssertEqual(1, finder.findFloor("("))
+    XCTAssertEqual(1, FloorFinder().findFloor("("))
   }
 
   func testCanFindDownFloor() {
-    let finder = FloorFinder()
-    XCTAssertEqual(-1, finder.findFloor(")"))
+    XCTAssertEqual(-1, FloorFinder().findFloor(")"))
+  }
+
+  func testCanFindFloorOnLongSpecification() {
+    XCTAssertEqual(2, FloorFinder().findFloor("(()()("))
   }
 }
 
