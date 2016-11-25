@@ -14,7 +14,12 @@ struct WrappingPaperCalculator {
     return (components[0], components[1], components[2])
   }
 
-  func areaRequired(_ l: Int, _ w: Int, _ h: Int) throws -> Int {
+  func areaRequired(specification input: String) throws -> Int {
+    let components = try parseComponents(input)
+    return areaRequired(components.0, components.1, components.2)
+  }
+
+  func areaRequired(_ l: Int, _ w: Int, _ h: Int) -> Int {
     let sides = [l * w, w * h, h * l]
     return sides.map{ $0 * 2 }.reduce(0, +) + (sides.min() ?? 0)
   }
