@@ -13,6 +13,11 @@ class FloorFinderTests: XCTestCase {
   func testCanFindFloorOnLongSpecification() {
     XCTAssertEqual(2, FloorFinder().findFloor("(()()("))
   }
+
+  func testCanFindBasementCharacter() {
+    XCTAssertEqual(1, FloorFinder().findBasementPosition(")"))
+    XCTAssertEqual(5, FloorFinder().findBasementPosition("()())"))
+  }
 }
 
 #if os(Linux)

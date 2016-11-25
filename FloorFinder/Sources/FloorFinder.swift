@@ -8,4 +8,13 @@ struct FloorFinder {
       return sum
     }
   }
+
+  func findBasementPosition(_ specification: String) -> Int? {
+    var level = 0
+    for (index, character) in specification.characters.enumerated() {
+      level += findFloor(String(character))
+      if level < 0 { return index + 1 }
+    }
+    return nil
+  }
 }
