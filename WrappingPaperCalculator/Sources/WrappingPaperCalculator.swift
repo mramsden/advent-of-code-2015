@@ -11,16 +11,11 @@ struct WrappingPaperCalculator {
       throw WrappingPaperCalculatorError.invalidFormat
     }
 
-    return (l: components[0], w: components[1], h: components[2])
+    return (components[0], components[1], components[2])
   }
 
-  func areaRequired(_ input: String) throws -> Int {
-    let components = try parseComponents(input)
-    let sides = [
-      components.1 * components.2,
-      components.2 * components.3,
-      components.3 * components.1,
-    ]
-    return sides.reduce(0) { $0 + (2 * $1) } + sides.reduce(0) { $0 == 0 || $1 < $0 ? $1 : 0 }
+  func areaRequired(_ l: Int, _ w: Int, _ h: Int) throws -> Int {
+    let sides = [l * w, w * h, h * l]
+    return sides.map{ $0 * 2 }.reduce(0, +) + (sides.min() ?? 0)
   }
 }
