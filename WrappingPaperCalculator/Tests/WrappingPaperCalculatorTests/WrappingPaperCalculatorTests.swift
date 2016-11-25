@@ -25,8 +25,10 @@ class WrappingPaperCalculatorTests: XCTestCase {
     func testCalculatesWrappingPaperAreaRequired() {
       let calculator = WrappingPaperCalculator()
       do {
-        let areaRequired = try calculator.areaRequired("2x3x4")
-        XCTAssertEqual(52, areaRequired)
+        let areaRequired1 = try calculator.areaRequired("2x3x4")
+        let areaRequired2 = try calculator.areaRequired("1x1x10")
+        XCTAssertEqual(52, areaRequired1)
+        XCTAssertEqual(42, areaRequired2)
       } catch {
         XCTFail("Unexpected error")
       }
