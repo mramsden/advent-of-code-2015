@@ -37,6 +37,18 @@ class WrappingPaperCalculatorTests: XCTestCase {
       XCTAssertEqual(34, ribbonRequired1)
       XCTAssertEqual(14, ribbonRequired2)
     }
+
+    func testCalculatesRibbonRequiredFromString() {
+      let calculator = WrappingPaperCalculator()
+      do {
+        let ribbonRequired1 = try calculator.ribbonRequired(specification: "2x3x4")
+        let ribbonRequired2 = try calculator.ribbonRequired(specification: "1x1x10")
+        XCTAssertEqual(34, ribbonRequired1)
+        XCTAssertEqual(14, ribbonRequired2)
+      } catch {
+        XCTFail("Unexpected error")
+      }
+    }
 }
 
 #if os(Linux)
@@ -44,6 +56,10 @@ extension WrappingPaperCalculatorTests {
   static var allTests : [(String, (WrappingPaperCalculatorTests) -> () throws -> Void)] {
       return [
           ("testCanExtractWidthHeightAndLengthComponents", testCanExtractWidthHeightAndLengthComponents),
+          ("testCalculatesWrappingPaperAreaRequiredFromString", testCalculatesWrappingPaperAreaRequiredFromString),
+          ("testThrowsErrorForUnexpectedInput", testThrowsErrorForUnexpectedInput),
+          ("testCalculatesRibbonRequired", testCalculatesRibbonRequired),
+          ("testCalculatesRibbonRequiredFromString", testCalculatesRibbonRequiredFromString),
       ]
   }
 }

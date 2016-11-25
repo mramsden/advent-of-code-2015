@@ -15,6 +15,11 @@ struct WrappingPaperCalculator {
     return sides.map{ $0 * 2 }.reduce(0, +) + (sides.min() ?? 0)
   }
 
+  func ribbonRequired(specification input: String) throws -> Int {
+    let components = try parseComponents(input)
+    return ribbonRequired(components.0, components.1, components.2)
+  }
+
   func ribbonRequired(_ l: Int, _ w: Int, _ h: Int) -> Int {
     let components = [l, w, h]
     return (components.sorted(by: <)[0...1].reduce(0, +) * 2) + components.reduce(1, *)
