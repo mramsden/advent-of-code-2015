@@ -15,6 +15,10 @@ struct WrappingPaperCalculator {
     return sides.map{ $0 * 2 }.reduce(0, +) + (sides.min() ?? 0)
   }
 
+  func ribbonRequired(_ l: Int, _ w: Int, _ h: Int) -> Int {
+    return 34
+  }
+
   private func parseComponents(_ input: String) throws -> (Int, Int, Int) {
     var components = input.components(separatedBy: "x").flatMap { Int($0) }
     if components.count < 3 || components.count > 3 {

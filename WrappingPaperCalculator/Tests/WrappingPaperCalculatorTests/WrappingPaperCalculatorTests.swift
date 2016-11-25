@@ -29,6 +29,12 @@ class WrappingPaperCalculatorTests: XCTestCase {
         XCTFail("Expected invalidFormat error")
       } catch {}
     }
+
+    func testCalculatesRibbonRequired() {
+      let calculator = WrappingPaperCalculator()
+      let ribbonRequired1 = calculator.ribbonRequired(2, 3, 4)
+      XCTAssertEqual(34, ribbonRequired1)
+    }
 }
 
 #if os(Linux)
