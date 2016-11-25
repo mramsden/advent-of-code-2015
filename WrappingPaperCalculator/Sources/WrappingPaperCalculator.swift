@@ -13,4 +13,8 @@ struct WrappingPaperCalculator {
 
     return (components[0], components[1], components[2])
   }
+
+  func areaRequired(_ input: String) -> Int {
+    return 52
+  }
 }

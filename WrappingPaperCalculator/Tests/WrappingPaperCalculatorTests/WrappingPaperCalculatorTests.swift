@@ -21,6 +21,16 @@ class WrappingPaperCalculatorTests: XCTestCase {
         XCTFail("Expected invalidFormat error")
       } catch {}
     }
+
+    func testCalculatesWrappingPaperAreaRequired() {
+      let calculator = WrappingPaperCalculator()
+      do {
+        let areaRequired = try calculator.areaRequired("2x3x4")
+        XCTAssertEqual(52, areaRequired)
+      } catch {
+        XCTFail("Unexpected error")
+      }
+    }
 }
 
 #if os(Linux)
