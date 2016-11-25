@@ -24,7 +24,10 @@ class FloorFinderTests: XCTestCase {
 extension FloorFinderTests {
   static var allTests: [(String, FloorFinderTests -> () throws -> Void)] {
     return [
-      ("testCanCreateFloorFinder", testCanCreateFloorFinder),
+      ("testCanFindUpFloor", testCanFindUpFloor),
+      ("testCanFindDownFloor", testCanFindDownFloor),
+      ("testCanFindFloorOnLongSpecification", testCanFindFloorOnLongSpecification),
+      ("testCanFindBasementCharacter", testCanFindBasementCharacter),
     ]
   }
 }
