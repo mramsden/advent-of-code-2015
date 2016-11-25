@@ -33,7 +33,9 @@ class WrappingPaperCalculatorTests: XCTestCase {
     func testCalculatesRibbonRequired() {
       let calculator = WrappingPaperCalculator()
       let ribbonRequired1 = calculator.ribbonRequired(2, 3, 4)
+      let ribbonRequired2 = calculator.ribbonRequired(1, 1, 10)
       XCTAssertEqual(34, ribbonRequired1)
+      XCTAssertEqual(14, ribbonRequired2)
     }
 }
 

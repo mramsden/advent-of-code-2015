@@ -16,7 +16,8 @@ struct WrappingPaperCalculator {
   }
 
   func ribbonRequired(_ l: Int, _ w: Int, _ h: Int) -> Int {
-    return 34
+    let components = [l, w, h]
+    return (components.sorted(by: <)[0...1].reduce(0, +) * 2) + components.reduce(1, *)
   }
 
   private func parseComponents(_ input: String) throws -> (Int, Int, Int) {
