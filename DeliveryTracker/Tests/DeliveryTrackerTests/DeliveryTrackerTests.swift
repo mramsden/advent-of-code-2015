@@ -2,17 +2,19 @@ import XCTest
 @testable import DeliveryTracker
 
 class DeliveryTrackerTests: XCTestCase {
-    func testCanCreateDeliveryTracker() {
-        let _ = DeliveryTracker()
+    func testStartsAtOriginCurrentLocation() {
+      let deliveryTracker = DeliveryTracker()
+      XCTAssertEqual(0, deliveryTracker.currentLocation.x)
+      XCTAssertEqual(0, deliveryTracker.currentLocation.y)
     }
 }
 
 #if os(Linux)
 extension DeliveryTrackerTests {
   static var allTests : [(String, (DeliveryTrackerTests) -> () throws -> Void)] {
-      return [
-          ("testCanCreateDeliveryTracker", testCanCreateDeliveryTracker),
-      ]
+    return [
+      ("testStartsAtOriginCurrentLocation", testStartsAtOriginCurrentLocation),
+    ]
   }
 }
 #endif
