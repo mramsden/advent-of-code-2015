@@ -46,6 +46,13 @@ class DeliveryTrackerTests: XCTestCase {
       deliveryTracker.move(.north)
       XCTAssertEqual(2, deliveryTracker.numberOfHousesVisited)
     }
+
+    func testCountsVisitedHousesOnlyOnce() {
+      let deliveryTracker = DeliveryTracker()
+      deliveryTracker.move(.north)
+      deliveryTracker.move(.south)
+      XCTAssertEqual(2, deliveryTracker.numberOfHousesVisited)
+    }
 }
 
 #if os(Linux)
@@ -59,6 +66,7 @@ extension DeliveryTrackerTests {
       ("testCanMoveSouth", testCanMoveSouth),
       ("testCanMoveWest", testCanMoveWest),
       ("testCountsHousesVisited", testCountsHousesVisited),
+      ("testCountsVisitedHousesOnlyOnce", testCountsVisitedHousesOnlyOnce),
     ]
   }
 }
