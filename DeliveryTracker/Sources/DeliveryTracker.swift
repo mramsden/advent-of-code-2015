@@ -1,14 +1,14 @@
 typealias DeliveryCoordinate = (x: Int, y: Int)
 
-enum Direction {
-  case north
-  case east
-  case south
-  case west
+enum Direction: Character {
+  case north = "^"
+  case east = ">"
+  case south = "v"
+  case west = "<"
 }
 
 class DeliveryTracker {
-  
+
   static let startingLocation = (x: 0, y: 0)
 
   private(set) var currentLocation = startingLocation
@@ -28,6 +28,13 @@ class DeliveryTracker {
 
     if !housesVisited.contains(where: { $0 == currentLocation }) {
       housesVisited += [currentLocation]
+    }
+  }
+
+  func move(_ instructions: String) {
+    instructions.characters.forEach { instruction in
+      guard let direction = Direction(rawValue: instruction) else { return }
+      move(direction)
     }
   }
 }
