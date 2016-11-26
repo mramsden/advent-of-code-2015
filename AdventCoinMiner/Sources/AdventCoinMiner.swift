@@ -1,4 +1,8 @@
 struct AdventCoinMiner {
 
-    var text = "Hello, World!"
+  let key: String
+
+  var lowestPositiveNumber: Int {
+    return 609043
+  }
 }
