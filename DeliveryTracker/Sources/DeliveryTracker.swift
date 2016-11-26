@@ -19,5 +19,6 @@ class DeliveryTracker {
         case .south: currentLocation.y -= 1
         case .west: currentLocation.x -= 1
       }
+      numberOfHousesVisited += 1
     }
 }
