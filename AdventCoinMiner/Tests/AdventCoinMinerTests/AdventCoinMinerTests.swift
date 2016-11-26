@@ -6,6 +6,11 @@ class AdventCoinMinerTests: XCTestCase {
       let miner = AdventCoinMiner(key: "abcdef")
       XCTAssertEqual(609043, miner.lowestPositiveNumber)
     }
+
+    func testCanFindLowestPositiveNumberForAnotherKey() {
+      let miner = AdventCoinMiner(key: "pqrstuv")
+      XCTAssertEqual(1048970, miner.lowestPositiveNumber)
+    }
 }
 
 #if os(Linux)
