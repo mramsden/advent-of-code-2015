@@ -10,7 +10,7 @@ class DeliveryTrackerTests: XCTestCase {
 
     func testStartsWithAtLeastOneHouseVisited() {
       let deliveryTracker = DeliveryTracker()
-      XCTAssertEqual(1, deliveryTracker.housesVisited)
+      XCTAssertEqual(1, deliveryTracker.numberOfHousesVisited)
     }
 }
 
