@@ -9,20 +9,24 @@ class NiceStringDetectorTests: XCTestCase {
     detector = NiceStringDetector()
   }
 
-  func testStringWithThreeOrMoreVowelsIsNice() {
+  func testThreeOrMoreVowelsIsNice() {
     XCTAssertTrue(detector.isNice(string: "nicce string"))
   }
 
-  func testStringWithTwoOrFewerVowelsIsNotNice() {
+  func testTwoOrFewerVowelsIsNotNice() {
     XCTAssertFalse(detector.isNice(string: "nicce"))
   }
 
-  func testStringWithRepeatedLettersIsNice() {
+  func testRepeatedLettersIsNice() {
     XCTAssertTrue(detector.isNice(string: "nicce string"))
   }
 
-  func testStringWithoutRepeatedLettersIsNotNice() {
+  func testNoRepeatedLettersIsNotNice() {
     XCTAssertFalse(detector.isNice(string: "nice string"))
+  }
+
+  func testBadPairIsNotNice() {
+    XCTAssertFalse(detector.isNice(string: "nicce stringab"))
   }
 }
 
@@ -30,10 +34,10 @@ class NiceStringDetectorTests: XCTestCase {
 extension NiceStringDetectorTests {
   static var allTests : [(String, (NiceStringDetectorTests) -> () throws -> Void)] {
     return [
-      ("testStringWithThreeOrMoreVowelsIsNice", testStringWithThreeOrMoreVowelsIsNice),
-      ("testStringWithTwoOrFewerVowelsIsNotNice", testStringWithTwoOrFewerVowelsIsNotNice),
-      ("testStringWithRepeatedLettersIsNice", testStringWithRepeatedLettersIsNice),
-      ("testStringWithoutRepeatedLettersIsNotNice", testStringWithoutRepeatedLettersIsNotNice),
+      ("testThreeOrMoreVowelsIsNice", testThreeOrMoreVowelsIsNice),
+      ("testTwoOrFewerVowelsIsNotNice", testTwoOrFewerVowelsIsNotNice),
+      ("testRepeatedLettersIsNice", testRepeatedLettersIsNice),
+      ("testNoRepeatedLettersIsNotNice", testNoRepeatedLettersIsNotNice),
     ]
   }
 }
